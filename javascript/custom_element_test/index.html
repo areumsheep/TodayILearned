@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      The document has one marble: <inline-circle></inline-circle>. 
+      <hr/>
+      The HTML parser instantiates two more marbles:
+      <inline-circle diameter="1.2em" color="blue"></inline-circle>
+      <inline-circle diameter=".6em" color="gold"></inline-circle>
+    </p>
+    <search-box></search-box>
+
+    <input type="range" />
+    <script type="module" src="./components/inline-circle.js"></script>
+    <script type="module" src="./components/search-box.js"></script>
+  </body>
+</html>
