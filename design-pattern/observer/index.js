@@ -1,6 +1,6 @@
 import Observable from './core/Observable.js';
 import { $ } from './utils/dom.js';
-import { logger } from './utils/logger.js';
+import { logger, showLog } from './utils/logger.js';
 
 const observable = new Observable();
 
@@ -8,7 +8,7 @@ const button = $('.button');
 const p = $('.p');
 
 button.addEventListener('click', () => {
-  observable.notify('Button Clicked');
+  observable.notify('Button Tag Click');
 });
 
 p.addEventListener('mouseover', () => {
@@ -16,3 +16,4 @@ p.addEventListener('mouseover', () => {
 });
 
 observable.subscribe(logger);
+observable.subscribe(showLog);

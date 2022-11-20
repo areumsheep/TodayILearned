@@ -1,21 +1,15 @@
+/** common css */
 body {
   margin: 0;
-  background: #232323;
 }
-main {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-div {
-  display: grid;
-  justify-content: center;
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 button {
   outline: none;
   border: none;
-  background: #cbccc6;
   padding: 0.5rem 1rem;
   font-size: 25px;
   border-radius: 20px;
@@ -23,7 +17,38 @@ button {
 }
 p {
   font-size: 25px;
-  padding: 0.5rem 1rem;
-  color: #cbccc6;
+
   cursor: pointer;
+}
+
+/** */
+main {
+  height: 100vh;
+  background: #232323;
+}
+
+.logs {
+  background-color: #efefef;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.logs > h2 {
+  font-size: 27px;
+  padding: 0.5rem;
+}
+.logs > p {
+  margin: 0;
+  padding: 1px 0.5rem;
+}
+
+.events {
+  display: grid;
+  justify-content: center;
+}
+.events > button {
+  background-color: #cbccc6;
+}
+.events > p {
+  color: #cbccc6;
+  padding: 0.5rem 1rem;
 }
