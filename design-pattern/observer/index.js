@@ -8,11 +8,11 @@ const button = $('.button');
 const p = $('.p');
 
 button.addEventListener('click', () => {
-  observable.notify('User Button Clicked');
+  observable.notify('Button Clicked');
 });
 
-p.addEventListener('click', () => {
-  observable.notify('User p Tag Clicked');
+p.addEventListener('mouseover', () => {
+  observable.notify('p Tag Mouse Over');
 });
 
 observable.subscribe(logger);
