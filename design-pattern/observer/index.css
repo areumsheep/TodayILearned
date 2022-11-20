@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  background: #232323;
+}
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  outline: none;
+  border: none;
+  background: #cbccc6;
+  padding: 0.5rem 1rem;
+  font-size: 25px;
+  border-radius: 20px;
+}
+p {
+  font-size: 25px;
+  padding: 0.5rem 1rem;
+  color: #cbccc6;
+}
