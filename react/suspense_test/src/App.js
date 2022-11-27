@@ -1,21 +1,14 @@
-import './App.css';
+import React, { Suspense } from 'react';
+import Image from './components/Image';
+import fetchData from './utils/fetchData';
 
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Cat Image</h1>
+      <Suspense fallback={<p>Loading...</p>}>
+        <Image resource={fetchData()} />
+      </Suspense>
     </div>
   );
 }
