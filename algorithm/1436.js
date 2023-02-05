@@ -11,16 +11,15 @@ rl.on('line', (line) => (data = line)).on('close', () => {
   process.exit();
 });
 
-const DOOMSDAY_NUMBER = 666;
 const solution = (data) => {
-  let value = DOOMSDAY_NUMBER;
+  const TARGET_NUMBER = 666;
+  let result = TARGET_NUMBER;
 
   while (data > 1) {
-    value++;
-    if (`${value}`.includes(DOOMSDAY_NUMBER)) {
+    result++;
+    if (`${result}`.includes(TARGET_NUMBER)) {
       data--;
     }
   }
-
-  return value;
+  return result;
 };
