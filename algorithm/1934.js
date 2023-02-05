@@ -12,18 +12,18 @@ rl.on('line', (line) => data.push(line)).on('close', () => {
 });
 
 const GCD = (a, b) => {
-  if (b === 0) return a;
-  return GCD(b, a % b);
+  if (a === 0) return b;
+  return GCD(b % a, a);
 };
-
 const solution = (data) => {
   data.shift();
-  const result = [];
-  for (const item of data) {
+  const result = data.reduce((acc, item) => {
     const [a, b] = item.split(' ').map(Number);
     const gcd = GCD(a, b);
-    result.push((a * b) / gcd);
-  }
+
+    acc.push((a * b) / gcd);
+    return acc;
+  }, []);
 
   return result.join(' ');
 };
