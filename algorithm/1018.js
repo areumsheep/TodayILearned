@@ -14,30 +14,27 @@ rl.on('line', (line) => data.push(line)).on('close', () => {
 const [chessX, chessY] = [8, 8];
 
 const solution = (data) => {
-  // N 세로, M 가로
-  const [N, M] = data.shift().split(' ').map(Number);
-
   let result = chessX * chessY;
+  const [x, y] = data.shift().split(' ').map(Number);
 
-  for (let i = 0; i <= N - chessY; i++) {
-    for (let j = 0; j <= M - chessX; j++) {
-      const currentResult = check(i, j, data);
-      if (result > currentResult) result = currentResult;
+  for (let i = 0; i <= x - chessX; i++) {
+    for (let j = 0; j <= y - chessY; j++) {
+      const temp = check(i, j, data);
+
+      if (result > temp) result = temp;
     }
   }
 
   return result;
 };
-
-const check = (startRow, startCol, board) => {
+const check = (x, y, board) => {
   let whiteCount = 0;
   const whiteBoard = ['WBWBWBWB', 'BWBWBWBW'];
 
   for (let i = 0; i < chessX; i++) {
-    const row = i + startRow;
-
+    const row = x + i;
     for (let j = 0; j < chessY; j++) {
-      const col = j + startCol;
+      const col = y + j;
       if (board[row][col] !== whiteBoard[row % 2][j]) {
         whiteCount++;
       }
