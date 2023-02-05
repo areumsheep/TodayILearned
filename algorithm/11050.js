@@ -11,16 +11,11 @@ rl.on('line', (line) => (data = line)).on('close', () => {
   process.exit();
 });
 
-const factorial = (num, count) => {
-  let result = 1;
-  while (count > 0) {
-    result = num * result;
-    num--;
-    count--;
-  }
-  return result;
+const EC = (N, K) => {
+  if (N === K || K === 0) return 1;
+  return EC(N - 1, K - 1) + EC(N - 1, K);
 };
 const solution = (data) => {
   const [N, K] = data.split(' ').map(Number);
-  return factorial(N, K) / factorial(K, K);
+  return EC(N, K);
 };
