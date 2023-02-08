@@ -12,15 +12,16 @@ rl.on('line', (line) => data.push(line)).on('close', () => {
 });
 
 const memo = Array.from({ length: 30 }, () => new Array(30));
-const BC = (N, M) => {
-  if (memo[N][M]) return memo[N][M];
-  if (N === M || M === 0) return (memo[N][M] = 1);
-  return (memo[N][M] = BC(N - 1, M - 1) + BC(N - 1, M));
+
+const BC = (M, N) => {
+  if (memo[M][N]) return memo[M][N];
+  if (M === N || N === 0) return (memo[M][N] = 1);
+  return (memo[M][N] = BC(M - 1, N - 1) + BC(M - 1, N));
 };
 const solution = (data) => {
   data.shift();
   for (const item of data) {
-    let [N, M] = item.split(' ').map(Number);
+    const [N, M] = item.split(' ').map(Number);
     console.log(BC(M, N));
   }
 };
