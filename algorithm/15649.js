@@ -7,32 +7,32 @@ const rl = readline.createInterface({
 
 const data = [];
 rl.on('line', (line) => data.push(line)).on('close', () => {
-  solution(data);
+  console.log(solution(data));
   process.exit();
 });
 
 const solution = (data) => {
   const [N, M] = data[0].split(' ').map(Number);
-  const range = [];
+  const output = [];
   const isUsed = [];
+  let result = '';
 
   const dfs = (k) => {
-    if (k === M) {
-      const arr = [];
-      for (let i = 0; i < M; i++) {
-        arr.push(range[i]);
-      }
-      console.log(arr.join(' '));
+    if(k === M){
+      result += `${output.join(' ')}\n`;
+      return;
     }
-    for (let i = 1; i <= N; i++) {
-      if (!isUsed[i]) {
-        range[k] = i;
+    for(let i = 1; i <= N; i++) {
+      if(!isUsed[i]) {
         isUsed[i] = true;
-        dfs(k + 1);
+        output.push(i);
+        dfs(k+1);
+        output.pop(i);
         isUsed[i] = false;
       }
     }
-  };
+  }
 
   dfs(0);
+  return result;
 };
