@@ -12,19 +12,19 @@ rl.on('line', (line) => data.push(line)).on('close', () => {
 });
 
 const solution = (data) => {
-  const [N, M] = data[0].split(' ').map(Number);
-  const output = [];
+  const [M, N] = data[0].split(' ').map(Number);
+  const range = [];
   let result = '';
 
   const dfs = (k, start) => {
-    if (k === M) {
-      result += `${output.join(' ')}\n`;
+    if (k === N) {
+      result += `${range.join(' ')}\n`;
       return;
     }
-    for (let i = start; i <= N; i++) {
-      output.push(i);
+    for (let i = start; i <= M; i++) {
+      range.push(i);
       dfs(k + 1, i);
-      output.pop();
+      range.pop(i);
     }
   };
 
