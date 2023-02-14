@@ -57,11 +57,14 @@ const SPECIAL_MINUTE = {
   HALF: 30,
   MAX: 60,
 };
+
 const solution = (data) => {
   const [hour, minute] = data.map(Number);
+
   const isOverHalf = minute > SPECIAL_MINUTE.HALF;
+
   let formattedHour = (hour % SPECIAL_HOUR.MAX) - (isOverHalf ? 0 : 1);
-  if (formattedHour < 0) formattedHour = 11;
+  if (formattedHour < 0) formattedHour = SPECIAL_HOUR.MAX - 1;
   const formattedMinute = isOverHalf ? SPECIAL_MINUTE.MAX - minute : minute;
 
   if (minute === SPECIAL_MINUTE.MIN) {
